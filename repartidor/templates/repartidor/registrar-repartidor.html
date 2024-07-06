@@ -1,0 +1,40 @@
+{% extends "repartidor/base-repartidor.html" %} 
+{% load static %} 
+{% block content %}
+<header class="bg-success py-5"> <!--ESTILO DE ENCABEZADO COLOR SUCCSESS(VERDE)-->
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Resgistrarse</h1>
+      <p class="lead fw-normal text-white-50 mb-0">¿Eres nuevo? resgistrate y genera ganancias extras siendo repartidor</p>
+    </div>
+  </div>
+</header>
+<section class="py-3">
+  <div class="row gx-4 gx-lg-6 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"><!--AQUI COMIENZA UNA FILA CON CLASES BOOTSTRAP-->
+    <form action="{% url 'registrarCliente' %}" method="POST">{% csrf_token %} <!--COMIENZO DEL FORM-->
+      <fieldset>
+        <legend style="text-align: center;">Datos Personales</legend>
+        <div class="mb-2">{{ form.AQUI VA EL NOMBRE REPARTIDOR.label_tag }} {{ form.AQUI VA EL NOMBRE REPARTIDOR }}</div>
+        <div class="mb-2">{{ form.AQUI VA EL APELLIDO REPARTIDOR.label_tag }} {{ form.AQUI VA EL APELLIDO REPARTIDOR }}</div>
+        <div class="mb-2">{{ form.AQUI VA EL RUT DEL REPARTIDOR.label_tag }} {{ form.rut_cliente }}</div>
+        <div class="mb-2">{{ form.AQUI VA EL TELEFONO DEL REPARTIDOR.label_tag }} {{ form.AQUI VA EL TELEFONO DEL REPARTIDOR }}</div>
+      </fieldset>
+      <hr>
+      <fieldset><!--COMIENZO DE LOS DATOS USER REPARTIDOR-->
+        <legend style="text-align: center;">Datos de Inicio de Sesión</legend>
+        <div class="mb-2">{{ form.username.label_tag }} {{ form.username }}</div>
+        <div class="mb-2">{{ form.email.label_tag }} {{ form.email }}</div>
+        <div class="mb-2">{{ form.password1.label_tag }} {{ form.password1 }}</div>
+        <div class="mb-2">{{ form.password2.label_tag }} {{ form.password2 }}</div>
+      </fieldset><!--COMIENZO DE LOS DATOS USER REPARTIDOR-->
+      <br>
+      <div class="mb-3 text-center">
+        <button class="btn btn-success" type="submit">Ingresar</button><!--BOTON COLOR SUCCSESS(VERDE)-->
+      </div>
+    </form><!--FIN DEL FORM-->
+  </div>
+</section>
+{% endblock %} 
+{% block extra_head %}
+<style><!-- ESTILOS VISUALES PROPIOS --></style>
+{% endblock %}
