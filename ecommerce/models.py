@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 
 # Create your models here.
+#Provando
 
 class Categoria(models.Model):
     id_categoria = models.AutoField(db_column='idCategoria' ,primary_key=True)
